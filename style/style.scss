@@ -22,10 +22,10 @@ section {
     .grid { z-index: 2; position: relative; }
 }
 
-.lines { position: absolute; bottom: -5em; width: 100%; z-index: 1; }
+.lines { position: absolute; bottom: -0rem; width: 100%; z-index: 1; }
 
 .invite {
-    background: #F5F5F5; padding-bottom: 15rem; .grid { @include split(2, 2rem); }
+    background: #F5F5F5; padding-bottom: 15rem; 
     .info { 
         @include font(14px); color: darken($text2, 20%);
         p { margin: 1rem 0 0; font-weight: 400; b { font-weight: 600; color: #F04B52; } }
@@ -35,14 +35,32 @@ section {
             div { width: 100%; @extend .row; justify-content: space-between; margin: 0 0 10px; font-weight: 500; color: #F04B52; }
         }
     }
-    .graphic { @extend .img; }
+    .graphic { img { width: 100%; height: auto; } }
+    .grid {
+        @include media(min, width, 961px) {
+            @include split(2, 2rem);
+        }
+        @include media(max, width, 960px) {
+            text-align: center; display: flex; flex-direction: column;
+            .hl { margin: 2rem auto 1rem; }
+            .info { order: 2; }
+        }
+    }
 }
 
 .address { 
-    background: #F4F0ED;
-    .grid { @include grid(2fr 1fr, 3rem); }
+    background: #F4F0ED; @include font(14px);
     .map { box-shadow: 0 5px 20px 0 rgba(#F04B52, .25); iframe { width: 100%; }}
-    .info { @extend .col; align-items: flex-start; @include font(14px); }
+    .info { @extend .col; }
+    .grid {
+        @include media(min, width, 961px) {
+            @include grid(2fr 1fr, 3rem); .info { align-items: flex-start; }
+        }
+        @include media(max, width, 960px) {
+            text-align: center; display: flex; flex-direction: column; 
+            .map { order: 2; } .info { text-align: center; margin: 0 0 4rem; }
+        }
+    }
 }
 
 $color2: darken(#F4F0ED, 10%);
@@ -57,6 +75,6 @@ footer {
         .name { font-weight: 600; color: $solid; }
     }
     .bg {
-        position: absolute; bottom: -25%;width: 100%; @extend .img;
+        position: absolute; bottom: -10vw;width: 100%; @extend .img;
     }
 }
