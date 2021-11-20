@@ -43,7 +43,7 @@ body, nav, header, section {
   }
 }
 
-.full, .img img, header .bg img, .invite .graphic img, .modal, .modal .close, header .bg, .swiper-container {
+.full, .img img, header .bg img, .invite .graphic img, footer .bg img, .modal, .modal .close, header .bg, .swiper-container {
   width: 100%;
   height: 100%;
 }
@@ -54,7 +54,7 @@ body, nav, header, section {
   min-height: 540px;
 }
 
-.img img, header .bg img, .invite .graphic img {
+.img img, header .bg img, .invite .graphic img, footer .bg img {
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -75,7 +75,7 @@ body, nav, header, section {
           flex-direction: row;
 }
 
-.col, header .headline, .address .info {
+.col, header .headline, .address .info, footer .grid {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -119,7 +119,6 @@ header {
   height: 100vh;
   overflow: hidden;
   position: relative;
-  border-radius: 0% 100% 0% 100% / 90% 0% 100% 10%;
 }
 
 header .headline {
@@ -169,7 +168,8 @@ header .cta:hover {
 }
 
 section {
-  padding: 8rem 0;
+  padding: 4rem 0;
+  position: relative;
 }
 
 section h1 {
@@ -179,8 +179,21 @@ section h1 {
   margin: 0 0 40px;
 }
 
+section .grid {
+  z-index: 2;
+  position: relative;
+}
+
+.lines {
+  position: absolute;
+  bottom: -5em;
+  width: 100%;
+  z-index: 1;
+}
+
 .invite {
   background: #F5F5F5;
+  padding-bottom: 15rem;
 }
 
 .invite .grid {
@@ -214,6 +227,7 @@ section h1 {
   border: 1px solid rgba(240, 75, 82, 0.3);
   border-radius: 10px;
   padding: 1em 2em;
+  background: #F5F5F5;
   -webkit-box-shadow: 0 5px 20px 0 rgba(240, 75, 82, 0.25);
           box-shadow: 0 5px 20px 0 rgba(240, 75, 82, 0.25);
 }
@@ -255,5 +269,41 @@ section h1 {
           align-items: flex-start;
   font-size: 14px;
   line-height: 22.652px;
+}
+
+footer {
+  padding: 8rem 0 15rem;
+  background: -webkit-gradient(linear, left top, left bottom, from(#F4F0ED), to(#e1cfcd));
+  background: linear-gradient(180deg, #F4F0ED 0%, #e1cfcd 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+footer .grid {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+footer .grid .graphic {
+  width: 100%;
+  max-width: 200px;
+  margin: 2rem 0;
+}
+
+footer .grid .graphic img {
+  width: 100%;
+  height: auto;
+}
+
+footer .grid .name {
+  font-weight: 600;
+  color: #25272E;
+}
+
+footer .bg {
+  position: absolute;
+  bottom: -25%;
+  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */
