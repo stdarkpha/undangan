@@ -1,0 +1,43 @@
+@import 'var';
+@import 'rules';
+@import 'base';
+
+// -------------------------------------------- Start Line
+
+header {
+    width: 100%; height: 100vh; overflow: hidden;
+    @extend .row; position: relative; border-radius: 0% 100% 0% 100% / 90% 0% 100% 10%;
+    .headline { position: relative; z-index: 2; text-align: center; @extend .col;
+        h1 { font-size: 72px; font-weight: 300; color: $pure; text-transform: uppercase; letter-spacing: 5px; margin: 0 0 10px; }
+        span { color: darken($light, 10%); font-size: 16px; }
+    }
+    .bg { @extend .full; position: fixed; @extend .img; filter: brightness(.5); z-index: -1; }
+
+    .cta { @include solid(#F04B52, 7.5px 3em, 0); display: table; @extend .trans; margin: 4rem 0 0; }
+}
+
+section {
+    padding: 8rem 0;
+    h1 { font-family: $font2; color: $text1; font-size: 42px; margin: 0 0 40px; }
+}
+
+.invite {
+    background: #F5F5F5; .grid { @include split(2, 2rem); }
+    .info { 
+        @include font(14px); color: darken($text2, 20%);
+        p { margin: 1rem 0 0; font-weight: 400; b { font-weight: 600; color: #F04B52; } }
+        .hl {
+            width: 100%; max-width: 420px; margin: 2rem 1rem 1rem; border: 1px solid rgba(#F04B52, .3); border-radius: 10px; padding: 1em 2em;
+            box-shadow: 0 5px 20px 0 rgba(#F04B52, .25);
+            div { width: 100%; @extend .row; justify-content: space-between; margin: 0 0 10px; font-weight: 500; color: #F04B52; }
+        }
+    }
+    .graphic { @extend .img; }
+}
+
+.address { 
+    background: #F4F0ED;
+    .grid { @include grid(2fr 1fr, 3rem); }
+    .map { box-shadow: 0 5px 20px 0 rgba(#F04B52, .25); iframe { width: 100%; }}
+    .info { @extend .col; align-items: flex-start; @include font(14px); }
+}

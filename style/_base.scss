@@ -1,0 +1,51 @@
+// -------------------------------------------- Base
+* {
+	text-decoration: none;
+    box-sizing: border-box;
+}
+
+html, body {  margin: 0; padding: 0; }
+
+body {
+    position: relative;
+    font-family: $font;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+    color: $solid;
+}
+
+body, nav, header, section { width: 100%; }
+
+#logo-brand { display: none; }
+
+.trans {  transition: ease 0.4s; }
+
+.grid {
+    width: 100%;
+    max-width: 1200px; // Grid Bond
+    margin: 0 auto;
+    @include media(max, width, 1280px) {
+        padding: 2vw;
+        padding: 0 clamp(1em, 6vw, 3em);
+    }
+}
+
+.full, .swiper-container { width: 100%; height: 100%; }
+.full-h { width: 100%; height: 100vh; min-height: 540px; }
+
+.img { img { @extend .full; object-fit: cover; } }
+
+.row { @include rata(row, center, center); }
+.col { @include rata(column, center, center); }
+
+// Modal
+.modal {
+    @extend .row; @extend .full; display: none;
+    position: fixed; top: 0; z-index: $nav+1;
+
+    .close { @extend .full; content: ''; cursor: pointer; position: absolute; z-index: 1; 
+        background: rgba($color: $pure, $alpha: .6); backdrop-filter: blur(12px);
+    }
+
+    &.active { display: flex; }
+}

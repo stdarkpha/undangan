@@ -1,0 +1,68 @@
+@mixin rata($flow, $align, $just) {
+    display: flex;
+    align-items: $align;
+    justify-content: $just;
+    flex-direction: $flow;
+}
+
+@mixin split($fr,$gap) {
+    display: grid;
+    grid-template-columns: repeat($fr, 1fr);
+    grid-gap: $gap;
+}
+
+@mixin grid($fr, $gap) {
+    display: grid;
+    grid-gap: $gap;
+    grid-template-columns: $fr;
+}
+
+@mixin auto($type, $lenght, $gap) {
+    // type : fill / fit
+    display: grid;
+    grid-gap: $gap;
+    grid-template-columns: repeat(auto-#{ $type }, minmax($lenght, 1fr));
+
+    @include media(max, width, $lenght){
+        grid-template-columns: none; width: 100%;
+    }
+}
+
+@mixin media($rule, $lenght, $val) {
+    @media (#{$rule}-#{$lenght}: $val) { @content; }
+}
+
+@mixin font($size) {
+    font-size: $size;
+    line-height: $size*1.618;
+}
+
+@mixin grad($rot, $color1, $color2) {
+    background: linear-gradient($rot, $color1 0%, $color2 100%);
+}
+
+@mixin solid($color, $pad, $rad) {
+    padding: $pad;
+    border: 1px solid $color;
+    background: $color; color: $pure;
+    border-radius: $rad; outline: none;
+    font-family: $font;
+    font-size: 14px; cursor: pointer;
+    &:hover {
+        background: $pure;
+        color: $color;
+    }
+}
+
+@mixin border($color, $pad, $rad) {
+    padding: $pad;
+    border: 1px solid $color;
+    background: $pure; color: $color;
+    border-radius: $rad; outline: none;
+    font-family: $font;
+    font-size: 14px; cursor: pointer;
+    &:hover {
+        background: $color;
+        color: $pure;
+    }
+}
